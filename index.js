@@ -1,26 +1,17 @@
-
-function success(){
-
-        console.log("success");
-
+const chk =  ()=>{
+    return (
+        ((Math.floor ( Math.random()*10)%2)===0) ? true : false
+    )
 }
 
-function failure (){
-    console.log("failure");
-}
+function resolve (){ console.log ("success")}
+function reject (){ console.log("failure")}
 
-function chkPromis (userInput)
+const chkPromise = new Promise ((resolve,reject)=>
 {
-    new Promise (function(success,failure)
-    {
-        if (userInput)
-        {
-            success();
-        }
-        else
-        {
-            failure();
-        }
-    })
-}
+    setTimeout(()=>{chk()? resolve() : reject()},2000)
+})
 
+chkPromise.then(resolve).catch(reject);
+
+console.log("hello world");
