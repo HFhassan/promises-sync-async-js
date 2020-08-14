@@ -9,10 +9,18 @@ function failure (){
     console.log("failure");
 }
 
-function chkPromis (userInput,success,failure)
+function chkPromis (userInput)
 {
-    userInput === true ? success() : failure()
-
+    new Promise (function(success,failure)
+    {
+        if (userInput)
+        {
+            success();
+        }
+        else
+        {
+            failure();
+        }
+    })
 }
 
-chkPromis (true, success,failure);
