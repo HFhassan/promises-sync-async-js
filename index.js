@@ -1,5 +1,5 @@
 function myGreet (msg,greet){
-    greet(msg);
+    morning(greet)
 }
 
 function greet (msg)
@@ -7,5 +7,22 @@ function greet (msg)
     alert (msg);
 }
 
+function morning (greet)
+{
+    alert("good morning");
+    greet("hello world")
+}
 
-myGreet("hello world",greet);
+function evening  (greet)
+{
+    alert ("Godd Evening");
+    greet ("hello wolrd");
+}
+
+function night (greet )
+{
+    alert ("Good Night");
+    greet ("Hello World ");
+}
+
+myGreet("hello",greet);
