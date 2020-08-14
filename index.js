@@ -1,28 +1,18 @@
-function myGreet (msg,greet){
-    morning(greet)
+
+function success(){
+
+        console.log("success");
+
 }
 
-function greet (msg)
+function failure (){
+    console.log("failure");
+}
+
+function chkPromis (userInput,success,failure)
 {
-    alert (msg);
+    userInput === true ? success() : failure()
+
 }
 
-function morning (greet)
-{
-    alert("good morning");
-    greet("hello world")
-}
-
-function evening  (greet)
-{
-    alert ("Godd Evening");
-    greet ("hello wolrd");
-}
-
-function night (greet )
-{
-    alert ("Good Night");
-    greet ("Hello World ");
-}
-
-myGreet("hello",greet);
+chkPromis (true, success,failure);
