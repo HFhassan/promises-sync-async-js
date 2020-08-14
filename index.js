@@ -1,17 +1,35 @@
-const chk =  ()=>{
-    return (
-        ((Math.floor ( Math.random()*10)%2)===0) ? true : false
-    )
+async function getData (){
+    const response = await fetch ('https://jsonplaceholder.typicode.com/todos/1');
+    console.log("response = ",response);
+    const data = await response.json();
+    console.log("data =",data);
+
 }
 
-function resolve (){ console.log ("success")}
-function reject (){ console.log("failure")}
+//getData();
 
-const chkPromise = new Promise ((resolve,reject)=>
-{
-    setTimeout(()=>{chk()? resolve() : reject()},2000)
-})
+//post resource
 
-chkPromise.then(resolve).catch(reject);
+async function postData (){
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts',
+    {
+        method: 'POST',
+        body: JSON.stringify( {
+            title: 'example',
+            body: 'yes it is posted',
+            userId: 1
+        }),
+        headers:
+        {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    },
 
-console.log("hello world");
+    );
+    console.log ("response =", response);
+    const data = await response.json();
+    console.log("data =", data)
+
+}
+
+postData();
