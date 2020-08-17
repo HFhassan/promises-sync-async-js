@@ -1,35 +1,18 @@
-async function getData (){
-    const response = await fetch ('https://jsonplaceholder.typicode.com/todos/1');
-    console.log("response = ",response);
-    const data = await response.json();
-    console.log("data =",data);
+import React , {useState, useEffect} from 'react';
 
-}
 
-//getData();
+const [data, setData] = useState({});
 
-//post resource
+useEffect(()=>{
+    fetch('https://jsonplaceholder.typicode.com/todos/1')
+  .then(response => response.json())
+  .then(json => console.log(json))
+  .then(json =>{
+      setData(json)
+  })
+},[])
 
-async function postData (){
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts',
-    {
-        method: 'POST',
-        body: JSON.stringify( {
-            title: 'example',
-            body: 'yes it is posted',
-            userId: 1
-        }),
-        headers:
-        {
-            "Content-type": "application/json; charset=UTF-8"
-        }
-    },
+return (
+    <h1>{data.title}</h1>
+)
 
-    );
-    console.log ("response =", response);
-    const data = await response.json();
-    console.log("data =", data)
-
-}
-
-postData();
